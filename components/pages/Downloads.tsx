@@ -82,7 +82,7 @@ export function Downloads({ lang }: { lang: Lang }) {
             <h3 className="h2">{t.web[0]}</h3>
             <p className="muted">{t.web[1]}</p>
             <div className="row-16">
-              <a href={webApp} className="btn btn-primary">{t.web[2]} <Arrow /></a>
+              <a href={webApp} target="_blank" rel="noopener" className="btn btn-primary">{t.web[2]} <Arrow /></a>
               <Badge>{dict[lang].overview.appPreview}</Badge>
             </div>
           </div>
