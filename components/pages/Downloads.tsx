@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Arrow, PixelStep } from "@/components/pixel";
 import { Badge, BlockHead, Install, PageHeader } from "@/components/ui";
 import { dict, href, type Lang } from "@/lib/i18n";
-import { appDownloads, appReleases, INSTALL_SCRIPT_READY, installScript, installScriptSource, macAppDownload, windowsInstallScript, windowsInstallScriptSource } from "@/lib/site";
+import { appDownloads, appReleases, webApp, INSTALL_SCRIPT_READY, installScript, installScriptSource, macAppDownload, windowsInstallScript, windowsInstallScriptSource } from "@/lib/site";
 
 const BEFORE_PATHS = ["/docs/", "/docs/#message", "/security/"];
 
@@ -82,8 +82,8 @@ export function Downloads({ lang }: { lang: Lang }) {
             <h3 className="h2">{t.web[0]}</h3>
             <p className="muted">{t.web[1]}</p>
             <div className="row-16">
-              <Badge tone="dev">{c.inDev}</Badge>
-              <span className="btn btn-secondary is-disabled" aria-disabled>{t.web[2]} <Arrow /></span>
+              <a href={webApp} className="btn btn-primary">{t.web[2]} <Arrow /></a>
+              <Badge>{dict[lang].overview.appPreview}</Badge>
             </div>
           </div>
         </div>

@@ -44,3 +44,5 @@ export const appDownloads = {
   ],
 } as const;
 export const appReleases = `${github}/Shum-App/releases`;
+/** Shum Web, the browser version, built from Shum-App. */
+export const webApp = "https://app.getshum.tech";
