@@ -86,6 +86,7 @@ const ru = {
     preview: "Превью 0.1.12",
     windowsPreview: "Превью 0.1.7",
     appPreview: "Превью 0.1.2",
+    iosVersion: "Версия 1.0",
     trustLabel: "Безопасность",
     trustTitle: ["Понимать, кому", "вы доверяете."],
     trustText:
@@ -98,7 +99,7 @@ const ru = {
     title: "Скачать Shum",
     lead: "Shum пока в разработке. Здесь видно, что уже можно попробовать, а что ещё впереди.",
     mobile: ["Мобильные устройства", "Shum в кармане: переписка рядом по Bluetooth и через интернет."],
-    ios: ["Shum для iPhone", "Переписка, люди рядом и контакты по QR-коду. Версия уже отправлена в App Store и проходит проверку.", "Скоро в App Store"],
+    ios: ["Shum для iPhone", "Переписка, люди рядом и контакты по QR-коду. Для iOS 16 и новее.", "Скачать в App Store"],
     android: ["Shum для Android", "Появится после версии для iPhone.", "В планах"],
     desktop: ["Десктоп", "Shum на компьютере: та же переписка, что на телефоне, и связь рядом по Bluetooth."],
     desktopApps: [
@@ -360,6 +361,7 @@ const en: Dict = {
     preview: "Preview 0.1.12",
     windowsPreview: "Preview 0.1.7",
     appPreview: "Preview 0.1.2",
+    iosVersion: "Version 1.0",
     trustLabel: "Security",
     trustTitle: ["Know who", "you trust."],
     trustText:
@@ -372,7 +374,7 @@ const en: Dict = {
     title: "Get Shum",
     lead: "Shum is still in development. Here you can see what you can try today and what is coming next.",
     mobile: ["Mobile", "Shum in your pocket: chat nearby over Bluetooth and over the internet."],
-    ios: ["Shum for iPhone", "Chats, people nearby and contacts by QR code. The app has been submitted and is being reviewed by Apple.", "Coming soon to the App Store"],
+    ios: ["Shum for iPhone", "Chats, people nearby and contacts by QR code. iOS 16 or later.", "Download on the App Store"],
     android: ["Shum for Android", "Coming after the iPhone version.", "Planned"],
     desktop: ["Desktop", "Shum on your computer: the same chats as on your phone, plus Bluetooth nearby."],
     desktopApps: [

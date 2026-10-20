@@ -3,7 +3,7 @@ import { Arrow, BandNoise, HeroNoise, PixelStep } from "@/components/pixel";
 import { dict, href, type Lang } from "@/lib/i18n";
 
 // Status of each row in the clients table, by position; the rest are in development.
-const STATUS: Record<number, "review" | "ready" | "windows" | "app"> = { 0: "review", 2: "app", 3: "app", 4: "app", 5: "app", 6: "ready", 7: "windows" };
+const STATUS: Record<number, "ios" | "ready" | "windows" | "app"> = { 0: "ios", 2: "app", 3: "app", 4: "app", 5: "app", 6: "ready", 7: "windows" };
 const CARD_PATHS = ["/downloads/", "/docs/", "/protocol/"];
 
 export function Overview({ lang }: { lang: Lang }) {
@@ -98,8 +98,8 @@ export function Overview({ lang }: { lang: Lang }) {
                       <span className="status is-ready">{t.appPreview}</span>
                     ) : STATUS[i] === "windows" ? (
                       <span className="status is-ready">{t.windowsPreview}</span>
-                    ) : STATUS[i] === "review" ? (
-                      <span className="status is-review">{c.review}</span>
+                    ) : STATUS[i] === "ios" ? (
+                      <span className="status is-ready">{t.iosVersion}</span>
                     ) : (
                       <span className="status">{c.inDev}</span>
                     )}

@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Arrow, PixelStep } from "@/components/pixel";
 import { Badge, BlockHead, Install, PageHeader } from "@/components/ui";
 import { dict, href, type Lang } from "@/lib/i18n";
-import { appDownloads, appReleases, webApp, INSTALL_SCRIPT_READY, installScript, installScriptSource, macAppDownload, windowsInstallScript, windowsInstallScriptSource } from "@/lib/site";
+import { appDownloads, appReleases, appStore, webApp, INSTALL_SCRIPT_READY, installScript, installScriptSource, macAppDownload, windowsInstallScript, windowsInstallScriptSource } from "@/lib/site";
 
 const BEFORE_PATHS = ["/docs/", "/docs/#message", "/security/"];
 
@@ -10,8 +10,8 @@ export function Downloads({ lang }: { lang: Lang }) {
   const t = dict[lang].downloads;
   const c = dict[lang].common;
   const mobile = [
-    { name: "iOS", info: t.ios, review: true },
-    { name: "Android", info: t.android, review: false },
+    { name: "iOS", info: t.ios, store: appStore },
+    { name: "Android", info: t.android, store: undefined },
   ];
   return (
     <>
@@ -22,15 +22,21 @@ export function Downloads({ lang }: { lang: Lang }) {
         <div className="container stack-24">
           <BlockHead title={t.mobile[0]} text={t.mobile[1]} />
           <div className="grid-2">
-            {mobile.map(({ name, info: [title, text, meta], review }) => (
+            {mobile.map(({ name, info: [title, text, meta], store }) => (
               <div key={name} className="platform">
                 <div className="platform-head">
                   <h2 className="h2">{name}</h2>
-                  {review ? <Badge tone="review">{c.review}</Badge> : <Badge tone="dev">{c.inDev}</Badge>}
+                  {store ? <Badge>{dict[lang].overview.iosVersion}</Badge> : <Badge tone="dev">{c.inDev}</Badge>}
                 </div>
                 <h3 className="h3">{title}</h3>
                 <p className="lead">{text}</p>
-                <span className="meta">{meta}</span>
+                {store ? (
+                  <div className="row-16">
+                    <a href={store} target="_blank" rel="noopener" className="btn btn-primary">{meta} <Arrow /></a>
+                  </div>
+                ) : (
+                  <span className="meta">{meta}</span>
+                )}
               </div>
             ))}
           </div>
