@@ -86,7 +86,7 @@ const ru = {
     preview: "Превью 0.1.20",
     windowsPreview: "Превью 0.1.14",
     appPreview: "Превью 0.1.8",
-    iosVersion: "Версия 1.0",
+    iosVersion: "Версия 1.1",
     trustLabel: "Безопасность",
     trustTitle: ["Понимать, кому", "вы доверяете."],
     trustText:
@@ -361,7 +361,7 @@ const en: Dict = {
     preview: "Preview 0.1.20",
     windowsPreview: "Preview 0.1.14",
     appPreview: "Preview 0.1.8",
-    iosVersion: "Version 1.0",
+    iosVersion: "Version 1.1",
     trustLabel: "Security",
     trustTitle: ["Know who", "you trust."],
     trustText:
