@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Arrow, PixelStep } from "@/components/pixel";
 import { Badge, BlockHead, Install, PageHeader } from "@/components/ui";
 import { dict, href, type Lang } from "@/lib/i18n";
-import { appDownloads, appReleases, appStore, webApp, INSTALL_SCRIPT_READY, installScript, installScriptSource, macAppDownload, windowsInstallScript, windowsInstallScriptSource } from "@/lib/site";
+import { appDownloads, appReleases, appStore, webApp, INSTALL_SCRIPT_READY, installScript, installScriptSource, linuxInstallScript, linuxInstallScriptSource, macAppDownload, windowsInstallScript, windowsInstallScriptSource } from "@/lib/site";
 
 const BEFORE_PATHS = ["/docs/", "/docs/#message", "/security/"];
 
@@ -46,7 +46,7 @@ export function Downloads({ lang }: { lang: Lang }) {
       <section className="section-tight">
         <div className="container stack-24">
           <BlockHead title={t.desktop[0]} text={t.desktop[1]} />
-          <div className="grid-3">
+          <div className="grid-2">
             {t.desktopApps.map(([name, text], i) => {
               const preview = <Badge>{dict[lang].overview.appPreview}</Badge>;
               const releases = <a href={appReleases} className="inline-link">{t.macApp.releases} <Arrow /></a>;
@@ -61,7 +61,7 @@ export function Downloads({ lang }: { lang: Lang }) {
                     <p className="muted small-note">{t.macApp.firstOpen} {releases}</p>
                   </div>
                 );
-              const [files, info] = i === 1 ? [appDownloads.windows, t.windowsApp] : [appDownloads.linux, t.linuxApp];
+              const [files, info] = [appDownloads.windows, t.windowsApp];
               return (
                 <div key={name} className="platform platform-sm">
                   <h3 className="h3 h3-lg">{name}</h3>
@@ -127,10 +127,18 @@ export function Downloads({ lang }: { lang: Lang }) {
               </>
             }
           />
-          <div className="grid-2">
-            <Install lang={lang} system="Debian / Ubuntu" tool="apt" note={t.soon} />
-            <Install lang={lang} system="Fedora" tool="dnf" note={t.soon} />
-          </div>
+          <Install
+            lang={lang}
+            system="Linux"
+            tool="curl"
+            command={`curl -fsSL ${linuxInstallScript} | sh`}
+            note={
+              <>
+                {t.linuxNote}{" "}
+                <a href={linuxInstallScriptSource} className="inline-link">{t.viewScript} <Arrow /></a>
+              </>
+            }
+          />
         </div>
       </section>
 

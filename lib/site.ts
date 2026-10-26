@@ -28,6 +28,8 @@ export const installScript = "https://raw.githubusercontent.com/hiTechTeam/Shum-
 export const installScriptSource = `${github}/Shum-CLI/blob/main/install.sh`;
 export const windowsInstallScript = "https://raw.githubusercontent.com/hiTechTeam/Shum-CLI/main/install.ps1";
 export const windowsInstallScriptSource = `${github}/Shum-CLI/blob/main/install.ps1`;
+export const linuxInstallScript = "https://raw.githubusercontent.com/hiTechTeam/Shum-CLI/main/install-linux.sh";
+export const linuxInstallScriptSource = `${github}/Shum-CLI/blob/main/install-linux.sh`;
 // The latest desktop release, so the link survives new versions.
 const appLatest = `${github}/Shum-App/releases/latest/download`;
 export const macAppDownload = `${appLatest}/Shum-macOS.dmg`;
@@ -35,12 +37,6 @@ export const appDownloads = {
   windows: [
     ["x64", `${appLatest}/Shum-Windows-x64-setup.exe`],
     ["ARM64", `${appLatest}/Shum-Windows-arm64-setup.exe`],
-  ],
-  linux: [
-    ["x64 .deb", `${appLatest}/Shum-Linux-x64.deb`],
-    ["ARM64 .deb", `${appLatest}/Shum-Linux-arm64.deb`],
-    ["x64 AppImage", `${appLatest}/Shum-Linux-x64.AppImage`],
-    ["ARM64 AppImage", `${appLatest}/Shum-Linux-arm64.AppImage`],
   ],
 } as const;
 export const appReleases = `${github}/Shum-App/releases`;
