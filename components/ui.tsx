@@ -35,12 +35,15 @@ export function Install({
   tool,
   command,
   note,
+  badge,
   lang,
 }: {
   system: string;
   tool: string;
   command?: string;
   note: ReactNode;
+  /** The version, inside the block. */
+  badge?: ReactNode;
   lang: Lang;
 }) {
   const c = dict[lang].common;
@@ -48,6 +51,7 @@ export function Install({
     <div className="install">
       <span className="label">{system}</span>
       <h3 className="h3">{tool}</h3>
+      {badge}
       <div className="command">
         {command ? (
           <>

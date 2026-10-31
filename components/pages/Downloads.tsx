@@ -8,6 +8,8 @@ const BEFORE_PATHS = ["/docs/", "/docs/#message", "/security/"];
 
 export function Downloads({ lang }: { lang: Lang }) {
   const t = dict[lang].downloads;
+  const cliPreview = <Badge>{dict[lang].overview.preview}</Badge>;
+  const windowsPreview = <Badge>{dict[lang].overview.windowsPreview}</Badge>;
   const c = dict[lang].common;
   const mobile = [
     { name: "iOS", info: t.ios, store: appStore },
@@ -99,12 +101,13 @@ export function Downloads({ lang }: { lang: Lang }) {
         <div className="container stack-24">
           <BlockHead title={t.cli[0]} text={t.cli[1]} />
           <div className={INSTALL_SCRIPT_READY ? "grid-2" : "grid-1"}>
-            <Install lang={lang} system="macOS" tool="Homebrew" command="brew install hitechteam/shum/shum" note={t.brewNote} />
+            <Install lang={lang} system="macOS" tool="Homebrew" command="brew install hitechteam/shum/shum" note={t.brewNote} badge={cliPreview} />
             {INSTALL_SCRIPT_READY && (
             <Install
               lang={lang}
               system="macOS"
               tool="curl"
+              badge={cliPreview}
               command={`curl -fsSL ${installScript} | sh`}
               note={
                 <>
@@ -118,6 +121,7 @@ export function Downloads({ lang }: { lang: Lang }) {
           <Install
             lang={lang}
             system="Windows"
+            badge={windowsPreview}
             tool="PowerShell"
             command={`irm ${windowsInstallScript} | iex`}
             note={
@@ -130,6 +134,7 @@ export function Downloads({ lang }: { lang: Lang }) {
           <Install
             lang={lang}
             system="Linux"
+            badge={cliPreview}
             tool="curl"
             command={`curl -fsSL ${linuxInstallScript} | sh`}
             note={
