@@ -56,7 +56,7 @@ const ru = {
     you: "Alice",
     contact: "Bob",
     bluetooth: "Рядом, без интернета",
-    relays: "Nostr-релеи",
+    relays: "Реле Nostr",
     relaysNote: "Через интернет, на любом расстоянии",
     onlyRecipient: "Прочитать сообщение может только получатель.",
     facts: [
@@ -82,14 +82,14 @@ const ru = {
       ["CLI для Windows", "CLI, через PowerShell"],
       ["CLI для Linux", "CLI, через curl"],
     ],
-    preview: "Превью 0.1.25",
-    windowsPreview: "Превью 0.1.19",
-    appPreview: "Превью 0.1.13",
+    preview: "Превью 0.1.26",
+    windowsPreview: "Превью 0.1.20",
+    appPreview: "Превью 0.1.14",
     iosVersion: "Версия 1.1",
     trustLabel: "Безопасность",
     trustTitle: ["Понимать, кому", "вы доверяете."],
     trustText:
-      "Сообщения шифруются на вашем устройстве, а релеи видят только закрытые конверты. Мы честно пишем и о том, чего Shum пока не скрывает.",
+      "Сообщения шифруются на вашем устройстве, а реле видят только закрытые конверты. Мы честно пишем и о том, чего Shum пока не скрывает.",
     trustButton: "Модель безопасности",
   },
   downloads: {
@@ -141,7 +141,7 @@ const ru = {
   },
   docs: {
     meta: "Начало работы",
-    toc: ["Создание профиля", "Первый контакт", "Отправка сообщения", "Bluetooth и релеи", "Shum в терминале", "Несколько устройств"],
+    toc: ["Создание профиля", "Первый контакт", "Отправка сообщения", "Bluetooth и реле", "Shum в терминале", "Несколько устройств"],
     eyebrow: "Документация / руководство",
     title: "Начало работы",
     lead: "Три шага до первого сообщения: профиль, собеседник, переписка.",
@@ -160,13 +160,13 @@ const ru = {
     ],
     message: [
       "3. Отправьте сообщение",
-      "Рядом сообщения идут по Bluetooth, на расстоянии через релеи Nostr. Статус в чате подскажет, какой путь сейчас доступен.",
+      "Рядом сообщения идут по Bluetooth, на расстоянии через реле Nostr. Статус в чате подскажет, какой путь сейчас доступен.",
     ],
     transports: [
-      "Bluetooth и релеи",
+      "Bluetooth и реле",
       "У Shum два пути доставки, и выбирать между ними вручную не нужно.",
       "Bluetooth работает, когда собеседник рядом, обычно в пределах нескольких десятков метров. Сообщение идёт напрямую, интернет не нужен, а другие устройства с Shum поблизости могут передать его дальше по цепочке.",
-      "Релеи Nostr работают через интернет на любом расстоянии. Это открытые серверы, которые хранят и пересылают зашифрованные конверты, но прочитать их не могут.",
+      "Реле Nostr работают через интернет на любом расстоянии. Это открытые серверы, которые хранят и пересылают зашифрованные конверты, но прочитать их не могут. Первое в списке реле Shum, relay.getshum.tech, рядом с ним независимые: если одно недоступно, сообщения идут через другие.",
       "Shum сам выбирает доступный путь, а статус в чате показывает, какой сейчас работает.",
     ],
     cliTitle: "Shum в терминале",
@@ -216,12 +216,12 @@ const ru = {
       "API push-сервера",
       "Хранилище на устройстве",
       "Несколько устройств",
-      "Релеи профиля и сети релеев",
+      "Реле профиля и сети реле",
       "Первая стабильная версия",
     ],
     stable: [
       "В работе: первая стабильная версия",
-      "Протокол ещё не выпущен. В первую стабильную версию входят несколько устройств одного профиля, привязка по QR-коду в обе стороны, синхронизация и свои релеи. Пока эти функции недоступны в приложениях.",
+      "Протокол ещё не выпущен. В первую стабильную версию входят несколько устройств одного профиля, привязка по QR-коду в обе стороны, синхронизация и свои реле. Пока эти функции недоступны в приложениях.",
     ],
     compat: [
       "Совместимость клиентов",
@@ -237,7 +237,7 @@ const ru = {
     pillars: [
       ["Ключи на устройстве", "Профиль создаётся на устройстве. Ни регистрации, ни номера телефона."],
       ["Содержимое зашифровано", "Прочитать сообщение может только получатель. В пути оно остаётся зашифрованным."],
-      ["Релеи доставляют данные", "Релеи Nostr передают закрытые конверты через интернет. Если релей недоступен, доставка задержится."],
+      ["Реле доставляют данные", "Реле Nostr передают закрытые конверты через интернет. Если одно реле недоступно, сообщения идут через другие, а если недоступны все, доставка задержится."],
     ],
     dataTitle: "Где находятся ваши данные",
     dataHead: ["Данные", "Хранение", "Что важно знать"],
@@ -246,13 +246,13 @@ const ru = {
       ["История переписки", "Локальное хранилище клиента", "Переписка защищена настолько, насколько защищено устройство."],
       [
         "Зашифрованные сообщения",
-        "Устройства и релейный транспорт",
-        "Сколько хранить конверты, решает каждый релей. В следующих версиях можно будет поставить свой релей, объединить релеи в свою сеть для своих людей или развернуть полностью свой сервер.",
+        "Устройства и реле",
+        "Сколько хранить конверты, решает каждое реле; реле Shum удаляет их через неделю. В следующих версиях можно будет поставить своё реле, объединить реле в свою сеть для своих людей или развернуть полностью свой сервер.",
       ],
       [
         "Метаданные соединения",
         "У сетевой инфраструктуры",
-        "Шифрование скрывает текст, но не сам факт соединения. В следующих версиях можно будет по желанию подключаться через Tor: тогда релеи не увидят ваш IP-адрес, а провайдер не узнает, к каким релеям вы подключаетесь.",
+        "Шифрование скрывает текст, но не сам факт соединения. В следующих версиях можно будет по желанию подключаться через Tor: тогда реле не увидят ваш IP-адрес, а провайдер не узнает, к каким реле вы подключаетесь.",
       ],
       [
         "Уведомления",
@@ -264,7 +264,7 @@ const ru = {
     limitsTitle: ["Что важно", "учитывать"],
     limits: [
       ["Устройство должно быть защищено", "Кто держит в руках разблокированный телефон, тот видит переписку. Ставьте блокировку экрана и обновляйте систему."],
-      ["Удаление не отзывает доставленные сообщения", "Удаление стирает профиль на устройстве. Копии у собеседников и конверты на релеях могут остаться."],
+      ["Удаление не отзывает доставленные сообщения", "Удаление стирает профиль на устройстве. Копии у собеседников и конверты на реле могут остаться."],
       ["Проверяйте, кого добавляете", "Имя и аватар может взять кто угодно. Сверяйте код безопасности при встрече или по каналу, которому доверяете."],
     ],
     techTitle: "Технические подробности",
@@ -351,9 +351,9 @@ const en: Dict = {
       ["CLI for Windows", "CLI, via PowerShell"],
       ["CLI for Linux", "CLI, via curl"],
     ],
-    preview: "Preview 0.1.25",
-    windowsPreview: "Preview 0.1.19",
-    appPreview: "Preview 0.1.13",
+    preview: "Preview 0.1.26",
+    windowsPreview: "Preview 0.1.20",
+    appPreview: "Preview 0.1.14",
     iosVersion: "Version 1.1",
     trustLabel: "Security",
     trustTitle: ["Know who", "you trust."],
@@ -435,7 +435,7 @@ const en: Dict = {
       "Bluetooth and relays",
       "Shum has two ways to deliver a message, and you never have to pick one by hand.",
       "Bluetooth works when the other person is nearby, usually within a few dozen metres. The message goes directly, no internet needed, and other devices running Shum close by can pass it along.",
-      "Nostr relays work over the internet at any distance. They are open servers that store and forward encrypted envelopes but cannot read them.",
+      "Nostr relays work over the internet at any distance. They are open servers that store and forward encrypted envelopes but cannot read them. First in the list is Shum's own relay, relay.getshum.tech, with independent ones beside it: if one is down, messages go through the others.",
       "Shum picks whichever path is available, and the status in the chat shows which one is working right now.",
     ],
     cliTitle: "Shum in the terminal",
@@ -506,7 +506,7 @@ const en: Dict = {
     pillars: [
       ["Keys on your device", "Your profile is created on the device. No sign-up, no phone number."],
       ["Content is encrypted", "Only the recipient can read a message. It stays encrypted in transit."],
-      ["Relays deliver data", "Nostr relays carry sealed envelopes over the internet. If a relay is down, delivery is delayed."],
+      ["Relays deliver data", "Nostr relays carry sealed envelopes over the internet. If one relay is down, messages go through the others; if all are down, delivery is delayed."],
     ],
     dataTitle: "Where your data lives",
     dataHead: ["Data", "Stored", "What to know"],
@@ -516,7 +516,7 @@ const en: Dict = {
       [
         "Encrypted messages",
         "Devices and relay transport",
-        "Each relay decides how long to keep envelopes. Future versions will let you run your own relay, link relays into a network for your people, or host a complete server yourself.",
+        "Each relay decides how long to keep envelopes; Shum's relay deletes them after a week. Future versions will let you run your own relay, link relays into a network for your people, or host a complete server yourself.",
       ],
       [
         "Connection metadata",
